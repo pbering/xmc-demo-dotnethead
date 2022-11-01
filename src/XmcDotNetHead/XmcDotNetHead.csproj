@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Sitecore.AspNet.ExperienceEditor" Version="20.1.1" />
+    <PackageReference Include="Sitecore.AspNet.RenderingEngine" Version="20.1.1" />
+    <PackageReference Include="Sitecore.LayoutService.Client" Version="20.1.1" />
+  </ItemGroup>
+
+</Project>

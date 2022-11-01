@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1D246AE2-92DE-4BF6-8876-BBA14A9AD93D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XmcDotNetHead", "src\XmcDotNetHead\XmcDotNetHead.csproj", "{9DF54EC3-9FC0-4CB6-B256-245005BC12A3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9DF54EC3-9FC0-4CB6-B256-245005BC12A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DF54EC3-9FC0-4CB6-B256-245005BC12A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DF54EC3-9FC0-4CB6-B256-245005BC12A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DF54EC3-9FC0-4CB6-B256-245005BC12A3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9DF54EC3-9FC0-4CB6-B256-245005BC12A3} = {1D246AE2-92DE-4BF6-8876-BBA14A9AD93D}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5C004B8F-3ABD-4FE3-8FC7-62F87624D03D}
+	EndGlobalSection
+EndGlobal

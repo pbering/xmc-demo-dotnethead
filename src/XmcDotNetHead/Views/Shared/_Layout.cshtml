@@ -1,0 +1,21 @@
+﻿@model LayoutViewModel
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>@Model?.Title?.Value</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <style type="text/css">
+        body {
+            background-color: rgb(30, 30, 30);
+            color: lightgrey;
+            font-family: Consolas, Courier New, Courier, monospace;
+            font-size: 1.1em;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    @RenderBody()
+</body>
+</html>
