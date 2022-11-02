@@ -1,15 +1,15 @@
-global using System.Globalization;
 global using Microsoft.AspNetCore.Localization;
 global using Microsoft.AspNetCore.Mvc;
+global using Sitecore.AspNet.ExperienceEditor;
 global using Sitecore.AspNet.RenderingEngine;
-global using Sitecore.AspNet.RenderingEngine.Filters;
 global using Sitecore.AspNet.RenderingEngine.Binding.Attributes;
 global using Sitecore.AspNet.RenderingEngine.Extensions;
+global using Sitecore.AspNet.RenderingEngine.Filters;
 global using Sitecore.AspNet.RenderingEngine.Localization;
-global using Sitecore.AspNet.ExperienceEditor;
 global using Sitecore.LayoutService.Client.Exceptions;
-global using Sitecore.LayoutService.Client.Response.Model.Fields;
 global using Sitecore.LayoutService.Client.Extensions;
+global using Sitecore.LayoutService.Client.Response.Model.Fields;
+global using System.Globalization;
 
 // create app and load config
 var builder = WebApplication.CreateBuilder(args);
@@ -28,7 +28,9 @@ builder.Services.AddSitecoreRenderingEngine(options =>
     options.AddModelBoundView<TitleModel>("Title")
         .AddModelBoundView<RichTextModel>("RichText")
         .AddDefaultPartialView("_ComponentNotFound");
-}).WithExperienceEditor(options => {
+})
+.WithExperienceEditor(options =>
+{
     options.JssEditingSecret = configuration.JssEditingSecret;
 });
 
@@ -40,6 +42,7 @@ if (configuration.EnableExperienceEditor)
     app.UseSitecoreExperienceEditor();
 }
 
+app.UseMiddleware<EnsureAcceptLanguageHeaderMiddleware>();
 app.UseStaticFiles();
 app.UseRouting();
 app.UseRequestLocalization(options =>
@@ -55,24 +58,10 @@ app.UseRequestLocalization(options =>
 
 app.UseEndpoints(endpoints =>
 {
+    endpoints.MapControllerRoute("healthz", "healthz", new { controller = "Default", action = "Healthz" });
     endpoints.MapSitecoreLocalizedRoute("sitecore", "Index", "Default");
     endpoints.MapFallbackToController("Index", "Default");
 });
 
 // start app
 app.Run();
-
-class SitecoreSettings
-{
-    public static readonly string Key = "Sitecore";
-
-    public Uri LayoutServiceUri { get; set; } = new Uri("https://edge.sitecorecloud.io/api/graphql/v1");
-
-    public string DefaultSiteName { get; set; } = string.Empty;
-
-    public string JssEditingSecret { get; set; } = string.Empty;
-
-    public string ExperienceEdgeToken { get; set; } = string.Empty;
-
-    public bool EnableExperienceEditor { get; set; } = false;
-}
