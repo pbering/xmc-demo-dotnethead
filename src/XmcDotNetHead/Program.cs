@@ -35,7 +35,11 @@ builder.Services.AddSitecoreRenderingEngine(options =>
 // configure app
 var app = builder.Build();
 
-app.UseSitecoreExperienceEditor();
+if (configuration.EnableExperienceEditor)
+{
+    app.UseSitecoreExperienceEditor();
+}
+
 app.UseStaticFiles();
 app.UseRouting();
 app.UseRequestLocalization(options =>
@@ -69,4 +73,6 @@ class SitecoreSettings
     public string JssEditingSecret { get; set; } = string.Empty;
 
     public string ExperienceEdgeToken { get; set; } = string.Empty;
+
+    public bool EnableExperienceEditor { get; set; } = false;
 }

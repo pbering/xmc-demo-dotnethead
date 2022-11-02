@@ -1,0 +1,17 @@
+{
+    "$schema": "../../.sitecore/schemas/ModuleFile.schema.json",
+    "namespace": "demo-site",
+    "items": {
+        "includes": [
+            {
+                "name": "DemoSiteRendering",
+                "path": "/sitecore/system/Settings/Services/Rendering Hosts/demo",
+                "scope": "singleItem"
+            },
+            {
+                "name": "DemoSite",
+                "path": "/sitecore/content/demo"
+            }
+        ]
+    }
+}
