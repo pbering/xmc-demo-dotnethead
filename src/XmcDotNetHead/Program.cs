@@ -44,7 +44,6 @@ if (configuration.EnableExperienceEditor)
 
 app.UseMiddleware<EnsureAcceptLanguageHeaderMiddleware>();
 app.UseStaticFiles();
-app.UseRouting();
 app.UseRequestLocalization(options =>
 {
     var defaultLanguage = "en";
@@ -56,12 +55,9 @@ app.UseRequestLocalization(options =>
     options.UseSitecoreRequestLocalization();
 });
 
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllerRoute("healthz", "healthz", new { controller = "Default", action = "Healthz" });
-    endpoints.MapSitecoreLocalizedRoute("sitecore", "Index", "Default");
-    endpoints.MapFallbackToController("Index", "Default");
-});
+app.MapControllerRoute("healthz", "healthz", new { controller = "Default", action = "Healthz" });
+app.MapSitecoreLocalizedRoute("sitecore", "Index", "Default");
+app.MapFallbackToController("Index", "Default");
 
 // start app
 app.Run();
