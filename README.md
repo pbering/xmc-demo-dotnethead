@@ -1,4 +1,4 @@
-# Minimal .NET 6 head for Sitecore XM Cloud / Experience Edge
+# Minimal .NET 7 head for Sitecore XM Cloud / Experience Edge
 
 ...
 
